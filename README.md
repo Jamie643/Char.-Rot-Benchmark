@@ -42,11 +42,25 @@ This framework pit two AI agents against each other in an automated feedback loo
 
 ## 📱 Mobile Testing Suite (iOS Shortcuts Integration)
 
-To validate model resilience on the fly without running a local server, the evaluation loop was prototyped as an iOS Shortcut consuming OpenRouter's API endpoints.
+To validate model resilience on the fly without running a local server, the evaluation loop was prototyped as an iOS Shortcut bundle consuming OpenRouter's API endpoints. The mobile workflow served three purposes: rapid prompt assembly, live API execution, and quick persona-failure capture while testing in the field.
+
+### Mobile setup & request flow
 
 | Shortcut API Request Setup | Live Turn Parsing & Execution |
 | :---: | :---: |
-| ![Shortcut Request Setup](assets/shortcut-loop-execution.png) | ![Live Mobile Execution Output](assets/mobile-turn-output.png) |
+| ![Shortcut request setup](5904348188594868528.jpg) | ![Live mobile execution output](5904348188594868529.jpg) |
+
+### Prompt assembly & execution
+
+| Prompt Builder | Shortcut Execution State |
+| :---: | :---: |
+| ![Prompt builder and target prompt](5904348188594868530.jpg) | ![Shortcut execution state](5904348188594868531.jpg) |
+
+### Shortcut library & deployment
+
+| Shortcut App Library | Shortcut Collection / Launch Flow |
+| :---: | :---: |
+| ![Shortcut library view](5904348188594868532.jpg) | ![Shortcut collection and launch UI](5904348188594868533.jpg) |
 
 > **Key Technical Takeaway (iOS Parsing):** Apple Shortcuts uses **1-based array indexing**. Parsing OpenRouter's response dictionary requires referencing `choices.1.message.content` instead of standard 0-based indexing (`choices.0`).
 
@@ -109,7 +123,7 @@ Char.-Rot-Benchmark/
 ├── logs/
 │   ├── nemotron-120b.json       # Nemotron-120B test results
 │   ├── llama-3.3-70b.json       # Llama 3.3-70B test results
-│   └── qwen-2.5-72b.json        # Qwen 2.5-72B test results
+│   └── qwen-2.5-72b.json        # Qwen 2.5-72b test results
 ├── shortcuts/
 │   └── benchmark-loop.shortcut  # iOS Shortcut automation
 └── docs/
